@@ -34,9 +34,9 @@
 ### Images
 | Method | Path                   | Description                  |
 |--------|------------------------|-----------------------------|
-| GET    | /image/       | Get all images     |
-| POST   | /users/:id          | add image to user profile    |
-| DELETE | /board/:id     | User can delete image from profile    |
+| GET    | /images/       | Get all images     |
+| POST   | /images/:id/save         | add image to user profile   |
+| DELETE | /saved/:id    | User can delete image from profile    |
 
 
 
