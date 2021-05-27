@@ -2,6 +2,7 @@ import './App.css';
 import { Route, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { useState , useEffect, useContext } from 'react'
+import ReactDom from 'react-dom'
 
 import Navbar from './compenents/Navbar'
 import Search from './compenents/Search'
@@ -28,8 +29,6 @@ function App() {
            <Welcome/>
         }
       />
-
-
 
       <Route
         path="/signup"
@@ -76,5 +75,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
