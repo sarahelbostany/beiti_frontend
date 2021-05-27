@@ -1,15 +1,22 @@
 import axios from 'axios'
-    import { useState } from 'react'
-    const Login = (props)=>{
+import { useContext, useState } from 'react'
+import { UserContext } from '../context/userContext'
+
+
+
+
+const Login = ()=>{
         const [email, setEmail] = useState('')
         const [password, setPassword] = useState('')
+        const {userState} = useContext(UserContext)
+        const [user, setUser] = useState()
 
         const handleSubmit = (e) => {
             e.preventDefault()
             // console.log(process.env.REACT_APP_BACKEND_URL)
             axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/login`,{ email, password})
             .then((response)=>{
-                props.setUser(response.data.user)
+                setUser(response.data.user)
                 localStorage.setItem('userId', response.data.user.id)
             })
             .catch((error)=>{

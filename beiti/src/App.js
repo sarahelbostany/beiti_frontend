@@ -4,10 +4,12 @@ import axios from 'axios'
 import { useState , useEffect, useContext } from 'react'
 
 import Navbar from './compenents/Navbar'
+import Search from './compenents/Search'
+import Welcome from './pages/Welcome'
 import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import Dashboard from './pages/Dashboard'
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
@@ -23,9 +25,11 @@ function App() {
       <Route
         exact path ="/"
         render={() =>
-           <Home />
+           <Welcome/>
         }
       />
+
+
 
       <Route
         path="/signup"
@@ -40,6 +44,32 @@ function App() {
           <Login setUser={setUser} />
         }
       />
+
+      <Route
+        path ="/home"
+        render={() =>
+           <Home />
+        }
+      />
+
+      <Route
+        path="/dashboard"
+        render={()=>
+          <Dashboard/>
+
+        }
+      />
+
+      <Route
+        path="/dashboard"
+        render={()=>
+          <Search/>
+
+        }
+      />
+
+
+
 
 
 

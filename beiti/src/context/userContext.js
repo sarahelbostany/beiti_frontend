@@ -3,15 +3,16 @@ import axios from "axios"
 
 
 const { useState, createContext } = require("react")
-const AppContext = createContext()
-const AppProvider = (props) => {
+const UserContext = createContext()
+const UserProvider = (props) => {
     const [user, setUser] = useState({})
     const userState = [user, setUser]
     const fetchUser = async () => {
         const userId = localStorage.getItem('userId')
+        console.log('hello ')
         if (userId) {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/verify`, {
+                const response = await axios.get(`${process.env.REACT_user_BACKEND_URL}/users/verify`, {
                     headers: {
                         Authorization: userId
                     }
@@ -26,10 +27,12 @@ const AppProvider = (props) => {
         userState: userState,
         fetchUser: fetchUser
     }
+    console.log('hello from user provider')
+    console.log(state)
     return (
-        <AppContext.Provider value={state}>
+        <UserContext.Provider value={state}>
             {props.children}
-        </AppContext.Provider>
+        </UserContext.Provider>
     )
 }
-export { AppContext, AppProvider }
+export {UserContext, UserProvider}
