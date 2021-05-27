@@ -26,11 +26,11 @@ const Home = () => {
     }, [])
 
 
-    const favImage = () => {
+    const favImage = (imageId) => {
         const id = localStorage.getItem('userId')
 
 
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/images/save`, {id:id},{
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/images/save`, {imageId:imageId},{
             headers: {
                 Authorization: id
             }

@@ -9,15 +9,16 @@ const Login = ()=>{
         const [email, setEmail] = useState('')
         const [password, setPassword] = useState('')
         const {userState} = useContext(UserContext)
-        const [user, setUser] = useState()
+        const [user, setUser] = useState([])
 
         const handleSubmit = (e) => {
             e.preventDefault()
             // console.log(process.env.REACT_APP_BACKEND_URL)
             axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/login`,{ email, password})
             .then((response)=>{
-                setUser(response.data.user)
+                console.log(response)
                 localStorage.setItem('userId', response.data.user.id)
+                setUser(response.data.user.id)
             })
             .catch((error)=>{
                 console.log(error);
